@@ -6,8 +6,10 @@ require('dotenv').config();
 const app = express();
 
 const config = {
-    channelAccessToken: process.env.channelAccessToken,
-    channelSecret: process.env.channelSecret
+    channelAccessToken:"q4Ksf3bTUO07mtF17kYxXbsBFyaTlryp6Jezn2JgNoL9vK1SBvQNVAqmRI9MOkaXq81n0voNYPeA5N1uc8xnPhwv9RMxdOBQsk/sw8FHKjlXVf74mCYmlNUCQW1pnVWHSmpUVTxwwiyMzmTCr7RmIgdB04t89/1O/w1cDnyilFU="
+,
+    channelSecret:"bd079cf85bb5c67f990fbaa8210d0b7e"
+
 };
 
 const client = new line.Client(config);
