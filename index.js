@@ -6,9 +6,9 @@ require('dotenv').config();
 const app = express();
 
 const config = {
-    channelAccessToken:"q4Ksf3bTUO07mtF17kYxXbsBFyaTlryp6Jezn2JgNoL9vK1SBvQNVAqmRI9MOkaXq81n0voNYPeA5N1uc8xnPhwv9RMxdOBQsk/sw8FHKjlXVf74mCYmlNUCQW1pnVWHSmpUVTxwwiyMzmTCr7RmIgdB04t89/1O/w1cDnyilFU="
+    channelAccessToken:"i1OHiHCFB3EihyJLfryerCYEdrDIk5NJrttNkMTld6iXZF3hEJDfPPD0a84nyBXKDjPvnmTU058453ujUM5v74qwSCXepNYK9Paljl3KtBqbQG6zX8oceJMC6deKz7vgspNCDXBlWOIpTsaO6CHX1AdB04t89/1O/w1cDnyilFU="
 ,
-    channelSecret:"bd079cf85bb5c67f990fbaa8210d0b7e"
+    channelSecret:"7c31a9a3258411de1a1de397e23c96b9"
 
 };
 
