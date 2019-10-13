@@ -1,23 +1,22 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 require('dotenv').config();
+const request = require('request');
 const app = express();
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./demo1.sqlite", err => {
-    console.log(err);
-})
-
-const data = {
-  id: null
-}
 app.get('/data', (req, res) => {
-  db.all("SELECT * FROM question", [], (err, row) => {
-      // console.dir(row);
-      data.id = JSON.stringify(row)
-      row.map((item) => { console.dir(item) })
+  let options = {
+    uri: 'https://gentle-springs-32390.herokuapp.com/test',
+    method: 'POST',
+    json: {
+      "name": "http://www.google.com/"
+    }
+  };
+  
+  request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body.id) // Print the shortened url.
+    }
   });
-  res.setHeader('Content-Type', 'application/json');
-res.send(data.id)
 })
 
 const config = {
@@ -277,20 +276,7 @@ function handleMessageEvent(event) {
             }
         }
     }
-    else {
-        
-      msg = {
-          type: 'text',
-          text: 'น้องบอทสามารถตอบคำถามเกี่ยวกับ\n-ทุนวิจัย\n-เบิกเงินวิจัย\n-กองทุนสนับสนุนงานวิจัย\n-เอกสารดาวน์โหลด'
-      };
-      if (eventText!== "hello, world" && eventText!== null) {
-          db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
-              if(err) console.dir(err.message);
-  
-          });
-      }
     
-  }
 
     return client.replyMessage(event.replyToken, msg);
 }
