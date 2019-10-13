@@ -1,9 +1,24 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
-
 require('dotenv').config();
-
 const app = express();
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./demo1.sqlite", err => {
+    console.log(err);
+})
+
+const data = {
+  id: null
+}
+app.get('/data', (req, res) => {
+  db.all("SELECT * FROM question", [], (err, row) => {
+      // console.dir(row);
+      data.id = JSON.stringify(row)
+      row.map((item) => { console.dir(item) })
+  });
+  res.setHeader('Content-Type', 'application/json');
+res.send(data.id)
+})
 
 const config = {
     channelAccessToken:"i1OHiHCFB3EihyJLfryerCYEdrDIk5NJrttNkMTld6iXZF3hEJDfPPD0a84nyBXKDjPvnmTU058453ujUM5v74qwSCXepNYK9Paljl3KtBqbQG6zX8oceJMC6deKz7vgspNCDXBlWOIpTsaO6CHX1AdB04t89/1O/w1cDnyilFU="
@@ -262,6 +277,20 @@ function handleMessageEvent(event) {
             }
         }
     }
+    else {
+        
+      msg = {
+          type: 'text',
+          text: 'น้องบอทสามารถตอบคำถามเกี่ยวกับ\n-ทุนวิจัย\n-เบิกเงินวิจัย\n-กองทุนสนับสนุนงานวิจัย\n-เอกสารดาวน์โหลด'
+      };
+      if (eventText!== "hello, world" && eventText!== null) {
+          db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
+              if(err) console.dir(err.message);
+  
+          });
+      }
+    
+  }
 
     return client.replyMessage(event.replyToken, msg);
 }
