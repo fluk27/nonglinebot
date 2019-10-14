@@ -353,12 +353,12 @@ function handleMessageEvent(event) {
   } else {
     if (eventText !== "hello, world" && eventText !== null) {
       clientDB.connect();
-      clientDB.query(IDB,[eventText],(err, res) => {
+      clientDB.query(IDB,[eventText],(err, resINT) => {
           if (err) throw err;
-          for (let row of res.rows) {
+          for (let row of resINT.rows) {
             console.log(JSON.stringify(row));
           }
-          clientDB.end();
+        //  clientDB.end();
         });
     }
 
