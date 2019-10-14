@@ -352,13 +352,13 @@ function handleMessageEvent(event) {
     };
   } else {
     if (eventText !== "hello, world" && eventText !== null) {
-      client.connect();
-      client.query(IDB,[eventText],(err, res) => {
+      clientDB.connect();
+      clientDB.query(IDB,[eventText],(err, res) => {
           if (err) throw err;
           for (let row of res.rows) {
             console.log(JSON.stringify(row));
           }
-          client.end();
+          clientDB.end();
         });
     }
 
