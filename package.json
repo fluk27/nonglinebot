@@ -20,7 +20,8 @@
     "@line/bot-sdk": "^2.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "sqlite3": "^4.1.0",
-    "request": "^2.88.0"
+    "firebase-admin": "^8.6.0",
+    "request": "^2.88.0",
+    "sqlite3": "^4.1.0"
   }
 }

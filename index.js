@@ -1,19 +1,27 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
+const {DB} = require('./connect')
 require('dotenv').config();
 const request = require('request');
 const app = express();
-let headersOpt = {
-  "content-type": "application/json",
-};
-//  app.get('/data', (req, res) => {
-//    request.post({
-//     uri: 'https://gentle-springs-32390.herokuapp.com/test',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ "name": "ขอเย็ดหีน้องโยสักทีนะ" })
-//   })
-// res.end("test")
-// })
+// let headersOpt = {
+//   "content-type": "application/json",
+// };
+// //  app.get('/data', (req, res) => {
+// //    request.post({
+// //     uri: 'https://gentle-springs-32390.herokuapp.com/test',
+// //     headers: { 'Content-Type': 'application/json' },
+// //     body: JSON.stringify({ "name": "ขอเย็ดหีน้องโยสักทีนะ" })
+// //   })
+// // res.end("test")
+// // })
+let result=[],resultDB
+app.get('/data', (req, res) => {
+  DB.firestore().collection('user').get().then(res=>{res.forEach(doc=>{
+    result.push(doc.data()) })})
+  res.send(result)
+  result=[]
+})
 
 const config = {
   channelAccessToken: "i1OHiHCFB3EihyJLfryerCYEdrDIk5NJrttNkMTld6iXZF3hEJDfPPD0a84nyBXKDjPvnmTU058453ujUM5v74qwSCXepNYK9Paljl3KtBqbQG6zX8oceJMC6deKz7vgspNCDXBlWOIpTsaO6CHX1AdB04t89/1O/w1cDnyilFU="
@@ -273,11 +281,7 @@ function handleMessageEvent(event) {
     }
   }
 else{
-  request.post({
-    uri: 'https://gentle-springs-32390.herokuapp.com/test',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ "name": eventText })
-  })
+  DB.firestore().collection('user').add({question:eventText}).then(res=>{res.id})
 }
 
   return client.replyMessage(event.replyToken, msg);

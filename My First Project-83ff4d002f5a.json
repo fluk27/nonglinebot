@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "apt-amplifier-241015",
+  "private_key_id": "83ff4d002f5a75f396e68d07d88d28de4c070b3d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCzZEWumHfMF+yG\nZTIMwC0fIQmsz+IbMpM3gehnEaK0hFJ+muWBOkd9WkhseBkx+T13q/mO6R4IEMPM\nLc9EF5EbbCOToa0DhvfTYIayP7R/vPLAARkNUcwQU2/aPtne3zWm+tm74hoVXYmo\nD5Rp9azZFpfkIO4TXi8E8oaCmDhCOhDFLm7gAYppX3zN4C2H4UZ1XxaC0CycvMom\nToj56UUvuY0TSzpQvFwf4pXl5a5v9ojpaJ1IBjZO8UnyKqUCIcAM95wJo/lxQXJV\nUE8LzlpLbo43DJoArC5f7guLozu3MVB+tYQRdqnLIFWqZWyE2DsuD8W7l9w0ayjM\nG42Nrw9FAgMBAAECggEALizANumt5E3AJvPDRz7sHlgdqmqz83Y4KJB6ppUGgVqR\n9V6fdnzuy9hCThE3wwI5jSUqDlv4y/CsxVCBSjCavClAmw6BfyftgG4XHaiCKGMV\nRNDDhwcn9IfVgaKt580ifUGSa+cN+bPi6+xeskt3W0WSgTjsrvWOOsLGVrUhvgHP\nfxI+V29VG0TEYnC5ur8flz1H/7qn6hK9R0xdmSg7l+8fy78hjb3HmVr7I0xl23DN\nb/8BYv89HHKDGe5kTIEG4VTHFuLHh8xhog1cxTqMUpGV3iNIslIrUEoqpg++788L\nzsAWHOnSgfdvzvB3Ere5tDScfo1Ho36TjH0NmfAMHQKBgQDosq1tFA4E3AyYO9Aa\nmygcZ7HaJ/OK8UUMSIvqaoY4HteEMu5ICqlw1Uv7ZrMPb/UFFbuNDWwHbXr/eG64\nTdFR7r24Kjd56m1ghO/BldPkfAX5bF/IcmwUte7lDHQEkGI/1t2wzr1bTpLB5VLO\ncQzZGYqKGjAwSUPx76WYVdrLhwKBgQDFWxAvIa8hp/Gqv2vmYGzySsqcyBZKJ79S\nBtTNL/L3dAAKkBl8TJwOrd/hOhREZzTPllv1Un6fTru6FiiMnOxiuxaKFTVvJKxB\nywzv0jodOjttO5C3L6lw14RF7CAR7qTCxtVmMUHteJfPIbd0229KSR1npyUT0La3\nN4GYqUX50wKBgDcNdsxUr1BlAzHNDNoOlTnLKp+zTgI0PKLAUyHdm+2RFmn3Zrpy\nk03XmMdcr8ZaNXzDfIDNiR5kv3HLe15tQrWApy/4BPH6DXCFYvfIy73FveAZzLtu\nnrVzqZZVEOm3gxcZbY+UCeadO0lWSPYAdwqx6T3tHjN+Ue3eRa45ua7nAoGAArH2\nq54bJSuE+l7420GP21M4JyH4Y/TdAQLE3zR7bfOwmHRVVMQ7EVxAhXPkmPaL2xXj\nlZsVzZkmqSjqTtlJxSNm8GXPv//RNmjOeWv2jTWhYCGDHW1SNA9NaCMMYRJQP7S1\nb1rW2qZd9F8ygS8J+wq6kxLOR9H+3MuuQmZ1ZS8CgYAoTpVv/zmKJbbKQAr04Aad\n35Ik/A/1kwxkWtI7BAmhZgzLNa2mBLatEvNVxNVKKV2xxWfYk/l5IOvbHFQaDGPl\nIovp9o7jb79+G4t8h5s3qy61DCjONPfUWEeXuoqGHeEjrHVleTlYAkuCr0ZoNh2V\nTAULyggETFpgEC4BicXDXg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "testlinebot@apt-amplifier-241015.iam.gserviceaccount.com",
+  "client_id": "103566322529671907879",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testlinebot%40apt-amplifier-241015.iam.gserviceaccount.com"
+}
