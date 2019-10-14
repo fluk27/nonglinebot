@@ -41,7 +41,7 @@ app.get('/data', (req, res) => {
   DB.firestore().collection('user').get().then(res=>{res.forEach(doc=>{
     result.push(doc.data()) })})
   res.send(result)
-  result=[]
+
 })
 
 const config = {
