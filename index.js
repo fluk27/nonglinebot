@@ -1,26 +1,47 @@
 const express = require("express");
 const line = require("@line/bot-sdk");
-const { DB } = require("./connect");
+const  DB  = require("./connect");
 require("dotenv").config();
+const {clientDB} = require('./testCon')
 const request = require("request");
+
+
 const app = express();
 
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./demo1.sqlite", err => {
-  console.log(err);
-});
+
+
+
+const  CTB = 'CREATE TABLE question(id SERIAL PRIMARY KEY,name VARCHAR NOT NULL);'
+const IDB = "INSERT INTO question (name) VALUES ($1)"
+const SDB = "select * from question"
+
+
+// const sqlite3 = require("sqlite3").verbose();
+// const db = new sqlite3.Database("./demo1.sqlite", err => {
+//   console.log(err);
+// });
 // console.log(MSG.data1)
 //console.log(address.MSG);
 
 app.get("/data/sql",async (req, res) => {
-  let data = [];
-    await db.all("SELECT * FROM question", [], (err, row) => {
-    // console.dir(row);
-    data.push(row);
-    row.map(item => {
-      console.dir(item);
+  //let data = [];
+  
+  clientDB.connect()
+  let result = []
+   clientDB.query(SDB,(err, resData) => {
+      
+      if (err) throw err;
+      for (let row of resData.rows) {
+          
+        console.log(JSON.stringify(row));
+      }
+      res.status(200).json(resData.rows)
+      console.log(`this is = ${result}`);
+     // clientDB.end();
     });
-    res.status(200).json(data)
+    
+   
+    
   })
  
   
@@ -29,7 +50,7 @@ app.get("/data/sql",async (req, res) => {
   //   if (err) console.dir(err.message);
   // });
 
-});
+
 
 // let headersOpt = {
 //   "content-type": "application/json",
@@ -331,9 +352,14 @@ function handleMessageEvent(event) {
     };
   } else {
     if (eventText !== "hello, world" && eventText !== null) {
-      db.all("INSERT INTO  question(question) VALUES(?)", [eventText], err => {
-        if (err) console.dir(err.message);
-      });
+      client.connect();
+      client.query(IDB,[eventText],(err, res) => {
+          if (err) throw err;
+          for (let row of res.rows) {
+            console.log(JSON.stringify(row));
+          }
+          client.end();
+        });
     }
 
     DB.firestore()
