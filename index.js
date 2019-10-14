@@ -4,6 +4,26 @@ const {DB} = require('./connect')
 require('dotenv').config();
 const request = require('request');
 const app = express();
+
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("./demo1.sqlite", err => {
+    console.log(err);
+})
+// console.log(MSG.data1)
+//console.log(address.MSG);
+
+
+app.get('/data/sql', (req, res) => {
+ let data =[]
+    db.all("SELECT * FROM question", [], (err, row) => {
+        // console.dir(row);
+        data.push(row)
+        row.map((item) => { console.dir(item) })
+    });
+    res.setHeader('Content-Type', 'application/json');
+  res.send(data)
+})
+
 // let headersOpt = {
 //   "content-type": "application/json",
 // };
@@ -15,8 +35,9 @@ const app = express();
 // //   })
 // // res.end("test")
 // // })
-let result=[],resultDB
+
 app.get('/data', (req, res) => {
+  let result=[]
   DB.firestore().collection('user').get().then(res=>{res.forEach(doc=>{
     result.push(doc.data()) })})
   res.send(result)
@@ -281,6 +302,13 @@ function handleMessageEvent(event) {
     }
   }
 else{
+  if (eventText!== "hello, world" && eventText!== null) {
+    db.all("INSERT INTO  question(question) VALUES(?)", [eventText], (err) => {
+        if(err) console.dir(err.message);
+
+    });
+}
+
   DB.firestore().collection('user').add({question:eventText}).then(res=>{res.id})
 }
 
